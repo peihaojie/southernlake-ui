@@ -1,0 +1,16 @@
+#menuPage
+    .header
+        .logo
+            img(src='~static/logo.png')
+        .title 某某项目
+        .user
+            .circle
+            .user_name 李媛
+    .content_box
+        .menu
+            .menu_option(v-for="menuItem in menuList" :key="menuItem.id" @click="jumpToPage(menuItem)" :style="{background: menuItem.path === checkedPath ? '#388ec6' : 'none'}")
+                img(:style="{verticalAlign: 'middle',marginLeft: '0.2rem',marginRight: '0.12rem'}" :src='menuItem.src')
+                span(:style="{color: menuItem.path === checkedPath ? '#fff' : '#d8ecf6'}") {{menuItem.label}}
+        .content_router
+            .content
+                router-view

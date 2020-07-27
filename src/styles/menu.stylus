@@ -1,0 +1,82 @@
+#menuPage
+  position relative;
+  display flex;
+  height 100%;
+  flex-direction column;
+  align-content space-around;
+  .header
+    height 0.8rem;
+    background-image linear-gradient(to right, #6bc4fd , #479cff);
+    .logo
+        margin-top 0.24rem;
+        width 1.75rem;
+        height 0.8rem;
+        display inline-block;
+        text-align center;
+    .title
+        width 1.6rem;
+        height 0.8rem;
+        text-align center;
+        font-size 0.18rem;
+        display inline-block;
+        vertical-align top;
+        line-height 0.8rem;
+        color #fff;
+        text-shadow 0px 1.4px 1px #00000099;
+    .user
+        width 1.2rem;
+        height 0.8rem;
+        display inline-block;
+        float right;
+    .circle
+        width 0.38rem;
+        height 0.38rem;
+        margin-top 0.22rem;
+        border-radius 50%;
+        background-color antiquewhite;
+        display inline-block;
+    .user_name
+        width: 0.6rem;
+        display inline-block;
+        text-align center;
+        vertical-align top;
+        line-height 0.8rem;
+        font-size 0.18rem;
+        color: #fff;
+  .content_box
+    width 19rem;
+    .menu
+        width 1.75rem;
+        height 10rem;
+        background-color #54a5d7;
+        display inline-block;
+        vertical-align: top;
+        .menu_option
+            height 0.6rem;
+            width 1.75rem;
+            border-bottom 1px solid #97c9e7;
+            cursor: pointer;
+            font-size: 0.16rem;
+            line-height: 0.6rem;
+            .icon
+                width 0.6rem;
+                height 0.6rem;
+                display inline-block;
+                text-align: center;
+            .icon_title
+                height 0.6rem;
+                vertical-align: top;
+                display inline-block;
+                font-size 0.16rem;
+                line-height 0.6rem;
+                color #ffffffb8;
+    .content_router
+        padding-left: 0.26rem;
+        display: inline-block;
+        padding-top 0.26rem;
+        padding-bottom 0.26rem;
+        .content
+            width 16.84rem;
+            border-radius: 5px;
+            box-shadow: #d1d1d1 0px 0px 9px 1px;
+

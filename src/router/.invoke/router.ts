@@ -1,0 +1,25 @@
+import Vue from 'vue';
+import Router, {
+  RouteConfig
+} from 'vue-router';;
+Vue.use(Router);
+export const routes: RouteConfig[] = [{
+    component: () => import('@/pages/menu/menu.vue'),
+    name: 'menu',
+    path: '/menu',
+    children: [{
+      component: () => import('@/pages/menu/surroundings/Index.vue'),
+      name: 'menu-surroundings',
+      path: 'surroundings',
+    }, ],
+  },
+  {
+    path: '/',
+    redirect: '/menu'
+  },
+];
+const router = new Router({
+  mode: 'hash',
+  routes,
+});
+export default router;
