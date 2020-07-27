@@ -1,0 +1,161 @@
+.surroundings
+    .box_one
+        .switch
+            el-button(type="primary" plain icon="el-icon-time" :disabled = "disabled" v-if = "hidden" @click = "checkHistoryHome()") 历史记录
+            el-button(type="primary" plain icon="el-icon-time" :disabled = "disabled" v-if = "!hidden" @click = "checkHistoryHome()") 返回首页
+            el-select(v-model="sn" placeholder="切换设备" @change="switchDevice()" :disabled = "disabled")
+                el-option(v-for="item in snData" :key="item.sn" :label="item.comments" :value="item.sn")
+            el-button(type="primary" plain icon="el-icon-refresh" v-if="sn" @click = "uploadHistoryData()") 导出excel
+            el-button(type="primary" plain icon="el-icon-refresh" v-if="!sn" disabled) 导出excel
+        .hr
+        .project_title 项目列表
+        .project_list
+            .c_box(v-for="company in companyList" :key="company.id" @click="checkCompany(company)" )
+                span {{company.companyName}}
+                i(:class="company.id === companyId ? 'el-icon-arrow-down' : 'el-icon-arrow-right'")
+                transition(name="fade")
+                    .p_box(v-if="company.id === companyId" )
+                        .p_name(v-for="project in projectList" :key="project.id" @click="checkProject($event, project)"
+                            :title="project.projectName" :style="{background: project.id === projectId ? '#f7f7f7' : 'none'}")
+                            .p_name_n
+                                span {{project.projectName}}
+                            .p_name_c
+                                span {{project.count}}台
+        .hr
+        .project_bottom
+            span 扬尘检测：
+            span(:style="{color: Object.keys(dustData).length ? '#3ada76': 'red',fontSize: '22px'}") {{Object.keys(dustData).length ? "在线" : "离线"}}
+
+    .lhr
+    .box_two(v-show = "hidden")
+        .top
+            .left
+                .equipment_title {{snName ? snName : "暂无"}}
+                .icon_box
+                    .box_left
+                        .button_left
+                            .icon_button 绿色施工
+                            .icon_leaf
+                    .box_middle
+                        .ring
+                            .ring_title(:style="{fontSize: '30px',fontWeight: 'none'}") PM2.5
+                            .ring_title {{Object.keys(dustData).length ? dustData.PM25 : 0}} ug/m³
+                    .box_right
+                        .ring_top
+                            .ring_left
+                                img(src="~/static/pm10.png")
+                            .ring_right
+                                .right_title(:style="{fontSize: '14px',fontWeight: 'none'}") PM10
+                                .right_title {{Object.keys(dustData).length ? dustData.PM10 : 0}}
+                        .ring_top
+                            .ring_left
+                                img(src="~/static/pm100.png")
+                            .ring_right
+                                .right_title(:style="{fontSize: '14px',fontWeight: 'none'}") PM100
+                                .right_title {{Object.keys(dustData).length ? dustData.Tsp : 0}}
+                        .ring_top
+                            .ring_left
+                                img(src="~/static/noise.png")
+                            .ring_right
+                                .right_title(:style="{fontSize: '14px',fontWeight: 'none'}") 噪音
+                                .right_title {{Object.keys(dustData).length ? dustData.Noise : 0}}
+                .degree
+                    img(src="~/static/pollutionDegree.png")
+            .shr
+            .right
+                .right_total
+                    img(src="~/static/devices.png" :style="{verticalAlign: 'middle',marginLeft: '0.4rem',marginRight: '0.1rem'}")
+                    span(:style="{color: '#0090fe'}") 设备总数：{{Object.keys(snCountData).length ? snCountData.total : 0}}
+                    img(src="~/static/failures.png" :style="{verticalAlign: 'middle',marginLeft: '0.3rem',marginRight: '0.1rem'}")
+                    span(:style="{color: '#fe7c7f'}") 故障数量：{{Object.keys(snCountData).length ? snCountData.offline : 0}}
+                .hhr
+                .right_data
+                    .right_box
+                        .box_title
+                            .title_left
+                                img(src="~/static/humidity.png" :style="{verticalAlign: 'middle',marginRight: '0.1rem'}")
+                                span 湿度
+                            span {{Object.keys(dustData).length ? dustData.Humidity : 0}}°
+                        .chedule
+                            el-progress(:percentage="Object.keys(dustData).length ? dustData.Humidity : 0" color="#64a3fd")
+                    .right_box
+                        .box_title
+                            .title_left
+                                img(src="~/static/windSpeed.png" :style="{verticalAlign: 'middle',marginRight: '0.1rem'}")
+                                span 风速
+                            span {{Object.keys(dustData).length ? dustData.WindSpeed : 0}}m/s
+                        .chedule
+                            el-progress(:percentage="Object.keys(dustData).length ? dustData.WindSpeed : 0" color="#fdb278")
+                    .right_box
+                        .box_title
+                            .title_left
+                                img(src="~/static/temperature.png" :style="{verticalAlign: 'middle',marginRight: '0.1rem'}")
+                                span 气温
+                            span {{Object.keys(dustData).length ? dustData.Temperature : 0}}%
+                        .chedule
+                            el-progress(:percentage="Object.keys(dustData).length ? dustData.Temperature : 0" color="#fe7a82")
+
+                .right_figure
+                    .figure_title {{Object.keys(dustData).length ? dustData.Winddirection : "暂无"}}
+                    .figure
+                        img(src="~/static/windDirection.png")
+                    .figure_name 风向
+        .hhr
+        .bottom
+            .echart
+                .echart_title 8小时污染浓度
+                .etitle
+                    span PM2.5今日平均浓度32
+                    span(:style="{paddingLeft: '0.5rem'}") PM10今日平均浓度42
+                .ptitle
+                    .pm(:style="{backgroundColor: '#37dc76',marginLeft: '0.02rem',marginRight: '0.02rem'}")
+                    span pm2.5
+                    .pm(:style="{backgroundColor: '#0091ff',marginLeft: '0.4rem',marginRight: '0.02rem'}")
+                    span pm10
+                    span(:style="{marginLeft: '0.25rem'}") 单位：um/㎡
+                .dust_echarts
+                    #dust
+            .nosie
+                .nosie_title 最近6小时噪音大小
+                .ntitle
+                    span 平均噪音
+                .n_box(v-for="nosie in zyData" :key="nosie.id" )
+                    .n_box_left
+                        span {{nosie.time}}:00
+                    .n_box_right(v-if="nosie.Noise <= 40" :style="{backgroundColor: '#3adb76'}") {{nosie.Noise}}dB
+                    .n_box_right(v-if="nosie.Noise > 40 && nosie.Noise <= 90" :style="{backgroundColor: '#f6c500'}") {{nosie.Noise}}dB
+                    .n_box_right(v-if="nosie.Noise > 90" :style="{backgroundColor: '#f13b3a'}") {{nosie.Noise}}dB
+    .box_two(v-show = "!hidden")
+        .history_title
+            .h_title {{snName ? snName : "暂无"}}
+            .h_search
+                span 时间：
+                el-date-picker(v-model="historyTime" type="daterange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期" )
+                span(:style="{marginLeft: '0.2rem'}") 类型：
+                el-select(v-model="typesOf" clearable placeholder="请选择")
+                    el-option(v-for="item in typesOfData" :key="item.value" :label="item.label" :value="item.value")
+                el-button(type="primary" round @click = "checkSearch()") 查询
+
+        .hhr
+        .history_data
+            el-table(:data="historyData" style="width: 100%" stripe :row-class-name="tableRowClassName")
+                el-table-column(type="selection" width="55")
+                el-table-column(label="序号" width="70px")
+                    template(slot-scope="scope")
+                        span {{(currentPage - 1) * pageSize + scope.$index + 1}}
+                el-table-column(prop="pm25" label="pm2.5")
+                el-table-column(prop="pm10" label="pm10")
+                el-table-column(prop="tsp" label="pm100")
+                el-table-column(prop="noise" label="噪音")
+                el-table-column(prop="humidity" label="湿度")
+                el-table-column(prop="temperature" label="气温")
+                el-table-column(prop="windSpeed" label="风速")
+                el-table-column(prop="ifoverproof" label="状态")
+                    template(slot-scope ="scope")
+                        span(v-if="scope.row.ifoverproof === 'NO'" :style="{color: 'red'}") 不合格
+                        span(v-if="scope.row.ifoverproof === 'YES'") 合格
+                el-table-column(prop="date" label="时间" :show-overflow-tooltip='true')
+        .page
+            el-pagination(layout="prev, pager, next,jumper" :total="total" @size-change="handleSizeChange"
+            @current-change="handleCurrentChange" :current-page="currentPage" :page-size="pageSize")
+
