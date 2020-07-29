@@ -9,6 +9,7 @@ html
       margin 0;
     #app
       height 100vh;
+      min-width 16rem;
       margin auto;
       color #3a;
 

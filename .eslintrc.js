@@ -1,7 +1,7 @@
 /*
  * @Date         : 2020-06-10 11:42:00
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-06-12 10:51:52
+ * @LastEditTime : 2020-07-29 15:00:53
  * @FilePath     : \.eslintrc.js
  */
 module.exports = {
@@ -20,7 +20,8 @@ module.exports = {
   "globals": {
     "$axios": true,
     "AMap": true,
-    "echarts": true
+    "echarts": true,
+    "EZUIPlayer": true,
   },
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
