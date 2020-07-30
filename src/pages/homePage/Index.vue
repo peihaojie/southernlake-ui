@@ -1,7 +1,7 @@
 <!--
  * @Date         : 2020-07-28 14:27:55
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-07-29 16:27:10
+ * @LastEditTime : 2020-07-29 17:08:55
  * @FilePath     : \src\pages\homePage\Index.vue
 -->
 <script lang="ts">
@@ -254,6 +254,7 @@ export default class HomePage extends Vue {
     // this.getMarginAlarm();
     // this.getLifterAlarm();
     this.getVideo();
+    this.getVideoTotal();
     this.$nextTick(() => {
       // this.getCarEcharts();
       this.getEnvironmentEcharts({});
@@ -872,6 +873,16 @@ export default class HomePage extends Vue {
             (this as any)[`player${index + 1}`] = new EZUIPlayer(`player${index + 1}`);
           })
         })
+      }
+    });
+  }
+
+  // 获取视频总数
+  getVideoTotal() {
+    this.$axios.post(`/api/NanHuApi/homePage/selectVideoNum?cid=${this.cid}`).then((res: any) => {
+      if (res.code === "0") {
+        this.VideoOnOff.total = res.data.videoNum
+        this.VideoOnOff.onLine = res.data.projectsNum
       }
     });
   }
