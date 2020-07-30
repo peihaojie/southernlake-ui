@@ -1,0 +1,145 @@
+#videoPage-wrap
+  height 9.4rem
+  background-color #f7
+  .video-list-wrap
+    width 13rem
+    height 100%
+    margin-right .2rem
+    background #fff
+    display inline-block
+    .video-list
+      height calc(100% - .6rem)
+      .video-wrap
+        background-image url("~static/systemMonitoring-activeBorder.png"), url("~static/systemMonitoring-border.png")
+        background-size 100% 100%
+        background-repeat no-repeat
+        .title
+          font-size 0
+          p
+            white-space nowrap
+            text-overflow ellipsis
+            overflow hidden
+            display inline-block
+            color #4b4b4b
+            width 100%
+            position relative
+            &:before
+              content " "
+              position absolute
+              background-image url("~static/systemMonitoring-icon.png")
+              background-size 100% 100%
+              background-repeat no-repeat
+            &:after
+              content " "
+              position absolute
+              border-radius 50%
+              background-color #3ad975
+              margin-left .1rem
+      .video-wrap-4
+        padding .4rem 0 0 .33rem
+        display inline-block
+        .video-wrap
+          width 6rem
+          height 4rem
+          .title
+            p
+              line-height .65rem
+              padding-left .7rem
+              font-size .2rem
+              &:before
+                left .2rem
+                top calc(50% - .18rem)
+                width .36rem
+                height @width
+              &:after
+                width .1rem
+                height @width
+                top calc(50% - .05rem)
+          .video
+            height calc(100% - .65rem)
+            padding 0 .2rem .2rem
+      .video-wrap-9
+        padding .43rem 0 0 .25rem
+        display inline-block
+        .video-wrap
+          width 4rem
+          height 2.5rem
+          .title
+            p
+              line-height 0.45rem
+              padding-left 0.5rem
+              font-size 0.16rem
+              &:before
+                left .2rem
+                top calc(50% - .125rem)
+                width .25rem
+                height @width
+              &:after
+                width .08rem
+                height @width
+                top calc(50% - .04rem)
+          .video
+            height calc(100% - .45rem)
+            padding 0 .2rem .2rem
+      .video-wrap-16
+        padding .2rem 0 0 .16rem
+        display inline-block
+        .video-wrap
+          width 3rem
+          height 2rem
+          .title
+            p
+              line-height .3rem
+              padding-left .5rem
+              font-size .14rem
+              &:before
+                left .2rem
+                top calc(50% - .09rem)
+                width .18rem
+                height @width
+              &:after
+                width .04rem
+                height @width
+                top calc(50% - .02rem)
+          .video
+            height calc(100% - .3rem)
+            padding 0 .2rem .2rem
+    .page
+      height .6rem
+      padding 0 .3rem
+      > i
+        display inline-block
+        width .4rem
+        height @width
+        margin-top .1rem
+        margin-right .3rem
+        cursor pointer
+      .video_four
+        background-image url("~static/video_four.png")
+        background-repeat no-repeat
+        background-size 100% 100%
+      .video_nine
+        background-image url("~static/video_nine.png")
+        background-repeat no-repeat
+        background-size 100% 100%
+      .video_sixteen
+        background-image url("~static/video_sixteen.png")
+        background-repeat no-repeat
+        background-size 100% 100%
+      .el-pagination
+        float right
+        margin-top .15rem
+  .project-list-wrap
+    width 3.64rem
+    height 100%
+    background #fff
+    display inline-block
+    vertical-align top
+    .project-name
+      line-height .6rem
+      color #626262
+      font-size .2rem
+      padding 0 .2rem
+      border-bottom 1px solid #c8c8c8
+    .project-list
+      padding 0 .2rem

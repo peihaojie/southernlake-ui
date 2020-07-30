@@ -13,10 +13,16 @@ export const routes: RouteConfig[] = [{
     name: 'menu',
     path: '/menu',
     children: [{
-      component: () => import('@/pages/menu/surroundings/Index.vue'),
-      name: 'menu-surroundings',
-      path: 'surroundings',
-    }, ],
+        component: () => import('@/pages/menu/surroundings/Index.vue'),
+        name: 'menu-surroundings',
+        path: 'surroundings',
+      },
+      {
+        component: () => import('@/pages/menu/videoPage/Index.vue'),
+        name: 'menu-videoPage',
+        path: 'videoPage',
+      },
+    ],
   },
   {
     path: '/',

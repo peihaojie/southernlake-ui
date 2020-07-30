@@ -1,4 +1,9 @@
-
+<!--
+ * @Date         : 2020-07-27 15:53:36
+ * @LastEditors  : HaoJie
+ * @LastEditTime : 2020-07-29 17:34:48
+ * @FilePath     : \src\pages\menu\menu.vue
+-->
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import { getModule } from "vuex-module-decorators";
@@ -11,25 +16,25 @@ export default class Menu extends Vue {
   private menuList: MenuList[] = [
     {
       label: "塔吊监测",
-      path: "menu/towerCrane",
+      path: "/menu/towerCrane",
       id: 1,
       src: require("static/towerCrane.png")
     },
     {
       label: "升降机监测",
-      path: "menu/lift",
+      path: "/menu/lift",
       id: 2,
       src: require("static/lift.png")
     },
     {
       label: "视频监控",
-      path: "menu/video",
+      path: "/menu/videoPage",
       id: 3,
       src: require("static/video.png")
     },
     {
       label: "环境监测",
-      path: "menu/surroundings",
+      path: "/menu/surroundings",
       id: 4,
       src: require("static/surroundings.png")
     }

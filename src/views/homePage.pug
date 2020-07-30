@@ -127,8 +127,8 @@
           .video-list-wrap
             .video-wrap(v-for="(item, index) in videoList" :key="item.id")
               video(playsinline webkit-playsinline autoplay width="100%" height="100%" controls :id="`player${index + 1}`")
-                source(:src="item.url")
-                source(:src="item.url" type="application/x-mpegURL")
+                source(:src="item.hdurl")
+                source(:src="item.hdurl" type="application/x-mpegURL")
         //- 环境检测
         .environment
           .title
