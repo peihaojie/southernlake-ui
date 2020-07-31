@@ -241,7 +241,7 @@ export default class TowerLift extends Vue {
 
   // 获取公司列表
   getCompanyData() {
-    this.store.getCompanyData(`?id=${this.companyId}&tag=true`).then((res: any) => {
+    this.store.getCompanyData(`?id=${this.companyId}&tag=true&type=elevator`).then((res: any) => {
       if (res.code === "0") {
         this.companyList = res.data;
       }
@@ -263,7 +263,7 @@ export default class TowerLift extends Vue {
 
   // 获取项目详情
   getProjectDetails() {
-    this.store.getCompanyData(`?id=${this.projectId}&tag=false&type=crane`).then((res: any) => {
+    this.store.getCompanyData(`?id=${this.projectId}&tag=false&type=elevator`).then((res: any) => {
       if (res.code === "0") {
         this.projectDetails = res.data;
       }

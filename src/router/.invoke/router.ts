@@ -35,8 +35,8 @@ export const routes: RouteConfig[] = [{
     ],
   },
   {
-    path: '/talkback',
-    redirect: '/homePage'
+    path: '/',
+    redirect: '/menu'
   },
 ];
 const router = new Router({
