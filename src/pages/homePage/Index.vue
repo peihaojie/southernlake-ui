@@ -1,7 +1,7 @@
 <!--
  * @Date         : 2020-07-28 14:27:55
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-07-31 15:53:29
+ * @LastEditTime : 2020-07-31 20:35:12
  * @FilePath     : \src\pages\homePage\Index.vue
 -->
 <script lang="ts">
@@ -858,7 +858,7 @@ export default class HomePage extends Vue {
 
   // 获取视频
   getVideo() {
-    this.$axios.post(`/api/NanHuApi/video/selectAllVideoProjectList?id=${this.cid}`).then((res: any) => {
+    this.$axios.post(`/api/NanHuApi/video/selectAllVideoProjectList?cid=${this.cid}`).then((res: any) => {
       if (res.code === "0") {
         if (res.data.rows.length > this.videoSize) {
           res.data.rows.length = this.videoSize
