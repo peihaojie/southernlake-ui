@@ -1,7 +1,7 @@
 /*
  * @Date         : 2020-03-05 11:37:23
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-07-08 09:25:40
+ * @LastEditTime : 2020-07-31 10:56:47
  * @FilePath     : \src\request\requestConfig.ts
  */
 // 配置所有的接口
@@ -33,6 +33,10 @@ export const requestConfig = {
     deviceData: "/api/elevatorApi/switchDevice",
     liftData: "/api/NanHuApi/elevatorApi/selectIndex",
     historyData: "/api/elevatorApi/historyRecord",
-    uploadHistoryData: "/api/elevatorApi/historyRecordExcel",
+    uploadHistoryData: "/api/elevatorApi/historyRecordExcel",  },
+  videoPage: {
+    videoUrl: "/api/NanHuApi/video/selectAllVideoProjectList",
+    menu: "/api/NanHuApi/getProjectList",
+    project: "/api/NanHuApi/video/selectAreaProjectList"
   }
 };

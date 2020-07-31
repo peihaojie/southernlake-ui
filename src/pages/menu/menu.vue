@@ -29,7 +29,7 @@ export default class Menu extends Vue {
     },
     {
       label: "视频监控",
-      path: "/menu/video",
+      path: "/menu/videoPage",
       id: 4,
       src: require("static/video.png")
     }
@@ -56,3 +56,4 @@ interface MenuList {
 </script>
 <template lang="pug" src="views/menu.pug" />
 <style lang="stylus" src="styles/menu.stylus" />
+

@@ -43,6 +43,9 @@ const server = axios.create({
   }
 });
 
+// server.defaults.baseURL = "http://47.106.69.253:8080";
+server.defaults.baseURL = "http://192.168.1.9:8083";
+
 // 下载函数
 function downLoad(data: any, name: string) {
   const blob = [];

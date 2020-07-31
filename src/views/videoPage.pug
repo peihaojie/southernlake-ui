@@ -1,0 +1,27 @@
+#videoPage-wrap
+  .video-list-wrap
+    .video-list
+      div(:class="videoSize === 4 ? 'video-wrap-4' : videoSize === 9 ? 'video-wrap-9' : 'video-wrap-16'" v-for="(item, index) in videoList" :key="item.id" v-if="videoShow")
+        .video-wrap.bg-border
+          .title(:title="item.videoName ? item.videoName : '未命名'")
+            p {{ item.videoName ? item.videoName : '未命名' }}
+          .video
+            video(playsinline webkit-playsinline autoplay width="100%" height="100%" controls :id="`player${index + 1}`")
+              source(:src="item.hdurl ? item.hdurl : item.url")
+              source(:src="item.hdurl ? item.hdurl : item.url" type="application/x-mpegURL")
+    .page
+      i.video_four(@click="changeVideoSize(4)")
+      i.video_nine(@click="changeVideoSize(9)")
+      i.video_sixteen(@click="changeVideoSize(16)")
+      el-pagination(@current-change="changePage" :current-page="pageIndex" :page-size="videoSize" layout="total, prev, pager, next, jumper" :total="videoTotal")
+  .project-list-wrap
+    p.project-name 项目列表
+    .project-list
+      el-tree.tree(:props="props" :load="loadNode" lazy accordion v-if="menuList.length")
+        span.custom-tree-node(slot-scope="{ node, data }")
+          p(v-if="!data.sbProjectVideo" :title="data.companyName") {{ data.companyName }}
+          p(v-else :title="data.companyName" @click="getProjectVideo(data.id)") {{ data.companyName }}
+            span.unit {{ data.sbProjectVideo.length }} 台
+            .img-wrap(v-for="img in data.sbProjectVideo" @click="getProjectVideo(data.id)")
+              img(:src="img.picUrl ? img.picUrl : defaultUrl")
+              p.videoName(:title="img.videoName ? img.videoName : '未命名'") {{ img.videoName ? img.videoName : "未命名" }}

@@ -1,0 +1,706 @@
+#homePage-wrap
+  .content {
+    // width: 19.2rem;
+    height: 10.8rem;
+    position: relative;
+    background: url("~static/company-background.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    .header {
+      height: 0.5rem;
+      margin: 0 0.35rem;
+      position: relative;
+      .company-name {
+        color: #fff;
+        font-size: 0.3rem;
+        font-weight: 600;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) skewX(-10deg);
+        text-shadow: 0 0 6px #fff;
+      }
+      .wing {
+        height: 0.3rem;
+        width: 6.22rem;
+        position: absolute;
+      }
+      .left {
+        bottom: 0;
+        left: 0.35rem;
+        background: url("~static/company-wing-left.png");
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        p {
+          color: #0061ef;
+          font-size: 0.16rem;
+          font-weight: 600;
+          padding-left: 1.1rem;
+          position: relative;
+          top: -0.1rem;
+        }
+        span {
+          color: #0061ef;
+          border: 1px solid #0061ef;
+          border-radius: .03rem;
+          padding: .01rem .05rem;
+          cursor: pointer;
+          position: absolute;
+          top: -0.1rem;
+          left: 0.5rem;
+          transition: .5s all;
+          &:hover {
+            background-color: #0061ef;
+            color: #fff;
+          }
+        }
+      }
+      .right {
+        bottom: 0;
+        right: 0.35rem;
+        text-align: right;
+        background: url("~static/company-wing-right.png");
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        p {
+          display: inline-block;
+          color: #fff;
+          font-size: 0.16rem;
+          font-weight: 600;
+          padding-right: 0.3rem;
+          position: relative;
+          top: -0.1rem;
+        }
+      }
+    }
+    .body {
+      height: calc(100% - 0.9rem);
+      margin: 0.2rem;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      display: flex;
+      background: url("~static/company-background-group.png");
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      padding: 0.4rem 0.35rem 0.3rem;
+      .left {
+        width: 3.8rem;
+        .click-card {
+          height: 4.6rem;
+          padding: 0 0.2rem 0.2rem;
+          position: relative;
+          background-image: url("~static/company-left-one.png");
+          background-size: 100% 100%;
+          background-repeat: no-repeat;
+          .click-card-img {
+            background-image: url("~static/click-card-img.png");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+          }
+          .circle {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: nowrap;
+            > div {
+              width: 1rem;
+              height: 1rem;
+              position: relative;
+              img {
+                width: 100%;
+                height: 100%;
+                // animation: circle 1s;
+                // animation-iteration-count: infinite;
+                // animation-direction: reverse;
+                // animation-timing-function: linear;
+              }
+              .people {
+                width: 0.9rem;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 0.14rem;
+                line-height: 0.3rem;
+                color: #fff;
+                text-align: center;
+                white-space: nowrap;
+                overflow: hidden;
+                span {
+                  font-size: 0.2rem;
+                  font-weight: 600;
+                }
+              }
+            }
+          }
+          #click-card {
+            width: 100%;
+            height: 2.8rem;
+            position: absolute;
+            bottom: 1px;
+            left: 0;
+          }
+          .date-picker {
+            top: 1.9rem;
+          }
+        }
+        .margin {
+          height: 4.4rem;
+          margin-top: 0.15rem;
+          padding: 0 0.2rem 0.2rem;
+          background-image: url("~static/company-left-one.png");
+          background-size: 100% 100%;
+          background-repeat: no-repeat;
+          .tower-img {
+            background-image: url("~static/tower-crane-monitoring.png");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+          }
+          .margin-animation {
+            height: calc(100% - 0.95rem);
+            background: url("~static/margin-animation-one.png");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            position: relative;
+            .margin-animationing {
+              position: absolute;
+              width: 0.12rem;
+              height: 81%;
+              right: 0.2rem;
+              top: 19%;
+              animation: line 3s;
+              animation-iteration-count: infinite;
+              animation-direction: alternate;
+              > div {
+                width: 0.02rem;
+                height: calc(100% - 0.15rem);
+                background: #666;
+                position: absolute;
+                left: 50%;
+                margin-left: -0.01rem;
+              }
+              img {
+                width: 0.12rem;
+                height: 0.3rem;
+                position: absolute;
+                bottom: 0;
+                z-index: 10;
+              }
+            }
+            .margin-list {
+              width: 1.4rem;
+              color: #fff;
+              position: absolute;
+              top: 0.7rem;
+              right: 0.5rem;
+              > p {
+                font-size: 0.18rem;
+                color: #0068ff;
+                text-align: center;
+              }
+              .list {
+                position: relative;
+                white-space: nowrap;
+                overflow: hidden;
+                line-height: 0.27rem;
+                > div {
+                  width: 0.2rem;
+                  height: 0.1rem;
+                  display: inline-block;
+                  margin-top: 0.085rem;
+                  margin-right: 0.1rem;
+                }
+                p {
+                  display: inline-block;
+                  vertical-align: top;
+                }
+                span {
+                  position: absolute;
+                  right: 0;
+                }
+              }
+            }
+          }
+        }
+      }
+      .center {
+        width: 10rem;
+        #map {
+          height: 5.8rem;
+          position: relative;
+          .company-project {
+            width: 8rem;
+            height: 0.5rem;
+            background: #002a6c7d;
+            position: absolute;
+            bottom: 0.25rem;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 0.1rem 0.7rem;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+            .project {
+              width: 1.2rem;
+              white-space: nowrap;
+              overflow: hidden;
+              i {
+                display: inline-block;
+                vertical-align: text-bottom;
+                width: 0.17rem;
+                height: 0.21rem;
+              }
+              .normal {
+                background: url("~static/company-project-normal.png");
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+              }
+              .abnormal {
+                background: url("~static/company-project-abnormal.png");
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+              }
+              .complete {
+                background: url("~static/company-project-complete.png");
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+              }
+              p {
+                display: inline-block;
+                line-height: 0.3rem;
+                font-size: 0.16rem;
+                color: #fff;
+                margin-left: 0.1rem;
+              }
+              span {
+                display: inline-block;
+                color: #fff;
+                line-height: 0.3rem;
+                font-size: 0.16rem;
+                margin-left: 0.1rem;
+              }
+            }
+            .allProject {
+              width: 2.3rem;
+              color: #fff;
+              line-height: 0.3rem;
+              font-size: 0.16rem;
+              white-space: nowrap;
+              overflow: hidden;
+              p {
+                display: inline-block;
+              }
+              .border {
+                height: 0.3rem;
+                width: 1.2rem;
+                margin-left: 0.1rem;
+                vertical-align: bottom;
+                position: relative;
+                display: inline-flex;
+                justify-content: space-between;
+                span {
+                  width: 0.2rem;
+                  height: 0.3rem;
+                  display: inline-block;
+                  box-sizing: border-box;
+                  border: 0.01rem solid #273c5f;
+                  box-shadow: inset 0 0 4px 2px #273c5f;
+                  position: relative;
+                  p {
+                    font-family: YJZT;
+                    line-height: 0.3rem;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                  }
+                }
+              }
+            }
+          }
+        }
+        .bottom {
+          display flex
+          .margin {
+            flex 1
+            height: 3.2rem;
+            margin-top: 0.15rem;
+            margin-right .2rem
+            padding: 0 0.2rem 0.2rem;
+            background-image: url("~static/company-left-one.png");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            .tower-img {
+              background-image: url("~static/tower-crane-monitoring.png");
+              background-size: 100% 100%;
+              background-repeat: no-repeat;
+            }
+            .margin-animation {
+              float right
+              width: 2.2rem;
+              height: 2.4rem;
+              background: url("~static/margin-animation-one.png");
+              background-size: 100% 100%;
+              background-repeat: no-repeat;
+              position: relative;
+              .margin-animationing {
+                position: absolute;
+                width: 0.12rem;
+                height: 81%;
+                right: 0.2rem;
+                top: 19%;
+                animation: line 3s;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+                > div {
+                  width: 0.02rem;
+                  height: calc(100% - 0.15rem);
+                  background: #666;
+                  position: absolute;
+                  left: 50%;
+                  margin-left: -0.01rem;
+                }
+                img {
+                  width: 0.12rem;
+                  height: 0.3rem;
+                  position: absolute;
+                  bottom: 0;
+                  z-index: 10;
+                }
+              }
+              .margin-list {
+                width: 1.4rem;
+                color: #fff;
+                position: absolute;
+                top: 0.7rem;
+                right: 0.5rem;
+                > p {
+                  font-size: 0.18rem;
+                  color: #0068ff;
+                  text-align: center;
+                }
+                .list {
+                  position: relative;
+                  white-space: nowrap;
+                  overflow: hidden;
+                  line-height: 0.27rem;
+                  > div {
+                    width: 0.2rem;
+                    height: 0.1rem;
+                    display: inline-block;
+                    margin-top: 0.085rem;
+                    margin-right: 0.1rem;
+                  }
+                  p {
+                    display: inline-block;
+                    vertical-align: top;
+                  }
+                  span {
+                    position: absolute;
+                    right: 0;
+                  }
+                }
+              }
+            }
+          }
+          .lifter {
+            flex 1
+            height: 3.2rem;
+            margin-top: 0.15rem;
+            padding: 0 0.2rem 0.2rem;
+            position: relative;
+            background-image: url("~static/company-right-three.png");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            .lifter-img {
+              background-image: url("~static/company-lifter.png");
+              background-size: 100% 100%;
+              background-repeat: no-repeat;
+            }
+            .lifter-list-wrap {
+              width: 1.1rem;
+              height: 1.05rem;
+              display: inline-block;
+              padding-left: 0.15rem;
+              vertical-align: top;
+              .lifter-list {
+                position: relative;
+                font-size: 0.14rem;
+                height: 0.25rem;
+                line-height: 0.25rem;
+                white-space: nowrap;
+                overflow: hidden;
+                div {
+                  width: 0.03rem;
+                  height: 0.03rem;
+                  border-radius: 50%;
+                  position: absolute;
+                  top: 50%;
+                  transform: translateY(-50%);
+                }
+                p {
+                  color: #fff;
+                  display: inline-block;
+                  margin-left: 0.1rem;
+                }
+                span {
+                  position: absolute;
+                  right: 0;
+                }
+              }
+            }
+            .lifter-bg {
+              width: 1.4rem;
+              height: 2.4rem;
+              position: absolute;
+              right: 0.25rem;
+              bottom: 0.1rem;
+              background-image: url("~static/lifter-bg.png");
+              background-size: 100% 100%;
+              background-repeat: no-repeat;
+            }
+          }
+        }
+      }
+      .right {
+        width: 3.8rem;
+        .environment {
+          height: 5.6rem;
+          margin-top: 0.2rem;
+          padding: 0 0.2rem 0.2rem;
+          background-image: url("~static/company-right-two.png");
+          background-size: 100% 100%;
+          background-repeat: no-repeat;
+          position: relative;
+          .environment-img {
+            background-image: url("~static/company-environment.png");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+          }
+          #environment {
+            width: 2.4rem;
+            height: 3.5rem;
+            position: absolute;
+            right: 0;
+            bottom: .6rem;
+          }
+          .environment-bg {
+            width: 1.2rem;
+            height: 3.3rem;
+            position: absolute;
+            bottom: 0.65rem;
+            left: 0.2rem;
+            background-image: url("~static/environment-bg.png");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+          }
+        }
+        .lifter {
+          height: 3.35rem;
+          padding: 0 0.2rem 0.2rem;
+          position: relative;
+          background-image: url("~static/company-right-three.png");
+          background-size: 100% 100%;
+          background-repeat: no-repeat;
+          .lifter-img {
+            background-image: url("~static/company-lifter.png");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+          }
+          .video-list-wrap {
+            height: calc(100% - 0.95rem);
+            .video-wrap {
+              display: inline-block
+              width: 1.65rem
+              height: 1.1rem
+              margin-right: .1rem
+              margin-bottom: .1rem
+              &:nth-child(2n) {
+                margin-right: 0
+              }
+              &:nth-child(3), &:nth-child(4) {
+                margin-bottom: 0
+              }
+            }
+          }
+          .lifter-bg {
+            width: 0.75rem;
+            height: 1.35rem;
+            position: absolute;
+            right: 0.25rem;
+            bottom: 0.1rem;
+            background-image: url("~static/lifter-bg.png");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+          }
+        }
+      }
+      .title {
+        width: 100%;
+        position: relative;
+        > i {
+          width: 0.35rem;
+          height: 0.3rem;
+          display: inline-block;
+          position: absolute;
+          top: 0.15rem;
+          left: 0;
+        }
+        > p {
+          display: inline-block;
+          margin-left: 0.7rem;
+          font-size: 0.2rem;
+          line-height: 0.6rem;
+          color: #fff;
+          font-weight: 500;
+        }
+        > span {
+          font-size: 0.12rem;
+          color: #fff;
+          position: absolute;
+          top: 50%;
+          right: 0;
+          transform: translateY(-50%);
+          cursor: pointer;
+          > i {
+            color: #0060ee;
+          }
+        }
+      }
+      .status-crosswise {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        padding-left: 0.05rem;
+        background: url("~static/company-left-two-gradual.png");
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        > div {
+          white-space: nowrap;
+          overflow: hidden;
+        }
+        p {
+          display: inline-block;
+          color: #fff;
+          line-height: 0.35rem;
+          font-size: 0.14rem;
+          padding-left: 0.05rem;
+        }
+        i {
+          display: inline-block;
+          width: 0.15rem;
+          height: 0.15rem;
+          vertical-align: middle;
+          position: relative;
+          top: -0.02rem;
+        }
+        .quantity {
+          background: url("~static/company-quantity.png");
+          background-size: 100% 100%;
+          background-repeat: no-repeat;
+        }
+        .on-line {
+          background: url("~static/company-on-line.png");
+          background-size: 100% 100%;
+          background-repeat: no-repeat;
+        }
+        .off-line {
+          background: url("~static/company-off-line.png");
+          background-size: 100% 100%;
+          background-repeat: no-repeat;
+        }
+      }
+      .status-vertical {
+        width: 1.6rem;
+        height: 1.05rem;
+        display: inline-block;
+        background-image: url("~static/company-vertical-gradual.png");
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        padding-left: 0.3rem;
+        margin-left: -0.2rem;
+        overflow: hidden;
+        > div {
+          white-space: nowrap;
+          overflow: hidden;
+          padding-top: 0.1rem;
+        }
+        p {
+          display: inline-block;
+          color: #fff;
+          font-size: 0.14rem;
+          padding-left: 0.05rem;
+        }
+        i {
+          display: inline-block;
+          width: 0.15rem;
+          height: 0.15rem;
+          vertical-align: middle;
+          position: relative;
+          top: -0.02rem;
+        }
+        .quantity {
+          background: url("~static/company-quantity.png");
+          background-size: 100% 100%;
+          background-repeat: no-repeat;
+        }
+        .on-line {
+          background: url("~static/company-on-line.png");
+          background-size: 100% 100%;
+          background-repeat: no-repeat;
+        }
+        .off-line {
+          background: url("~static/company-off-line.png");
+          background-size: 100% 100%;
+          background-repeat: no-repeat;
+        }
+      }
+      .date-picker {
+        position: absolute;
+        right: 0;
+        width: 1rem;
+        font-size: .14rem;
+        /deep/.el-input__inner {
+          padding: 0 0 0 .04rem;
+          border: 1px solid #0068ff;
+          color: #0068ff;
+          background: #00173d;
+          height: .24rem;
+          line-height: .24rem;
+          cursor: pointer;
+        }
+      }
+    }
+    .footer {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      font-size: 0.16rem;
+      font-weight: 540;
+      line-height: 0.4rem;
+    }
+    .none {
+      display: none;
+    }
+  }
+
+  @keyframes circle {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes line {
+    from {
+      height: 15%;
+    }
+    to {
+      height: 81%;
+    }
+  }

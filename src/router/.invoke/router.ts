@@ -4,6 +4,11 @@ import Router, {
 } from 'vue-router';;
 Vue.use(Router);
 export const routes: RouteConfig[] = [{
+    component: () => import('@/pages/homePage/Index.vue'),
+    name: 'homePage',
+    path: '/homePage',
+  },
+  {
     component: () => import('@/pages/menu/menu.vue'),
     name: 'menu',
     path: '/menu',
@@ -21,6 +26,11 @@ export const routes: RouteConfig[] = [{
         component: () => import('@/pages/menu/towerLift/Index.vue'),
         name: 'menu-towerLift',
         path: 'towerLift',
+      },
+      {
+        component: () => import('@/pages/menu/videoPage/Index.vue'),
+        name: 'menu-videoPage',
+        path: 'videoPage',
       },
     ],
   },
