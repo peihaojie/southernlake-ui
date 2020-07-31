@@ -1,3 +1,9 @@
+/*
+ * @Date         : 2020-07-31 16:35:23
+ * @LastEditors  : HaoJie
+ * @LastEditTime : 2020-07-31 23:03:41
+ * @FilePath     : \src\store\modules\towerCrane\TowerCraneStore.ts
+ */
 import { Action, Module, VuexModule } from "vuex-module-decorators";
 import store from "store/index";
 import { requestConfig } from "request/requestConfig";
@@ -50,6 +56,7 @@ export default class TowerCraneStore extends VuexModule {
 
   @Action
   uploadHistoryData(params: any): Promise<any> {
-    return axios.post(this.towerCraneUrl.uploadHistoryData + params, null, { responseType: 'blob', params: '塔吊历史记录' });
+    // return axios.post(this.towerCraneUrl.uploadHistoryData + params, null, { responseType: 'blob', params: '塔吊历史记录' });
+    return (location.href = this.towerCraneUrl.uploadHistoryData + params);
   }
 }
