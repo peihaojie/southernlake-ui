@@ -1,7 +1,7 @@
 <!--
  * @Date         : 2020-07-28 14:27:55
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-07-29 17:08:55
+ * @LastEditTime : 2020-07-31 15:53:29
  * @FilePath     : \src\pages\homePage\Index.vue
 -->
 <script lang="ts">
@@ -15,7 +15,7 @@ moment.locale("zh-cn");
 @Component({})
 export default class HomePage extends Vue {
   private store: any = null;
-  private cid = ""; // 工地ID
+  private cid = "76"; // 工地ID
   private companyName = ""; // 公司名称
   private citySpace = ""; // 集团所在城市
   private temperature = ""; // 温度
@@ -32,10 +32,6 @@ export default class HomePage extends Vue {
   private allUnits = 0; // 累计参建单位
   private allProjects = 0; // 所有项目数量
   private videoSize = 4; // 视频的个数
-  // private player1: any | null = null; // 视频的个数
-  // private player2: any | null = null; // 视频的个数
-  // private player3: any | null = null; // 视频的个数
-  // private player4: any | null = null; // 视频的个数
   private videoList: any[] = []; // 视频的列表
   private marginAlarmObject = {
     limit: {
@@ -241,7 +237,7 @@ export default class HomePage extends Vue {
   }
 
   mounted() {
-    this.cid = "76";
+    sessionStorage.setItem("companyId", this.cid)
     this.getTime();
     this.initMap();
     this.getRem();
@@ -885,6 +881,12 @@ export default class HomePage extends Vue {
         this.VideoOnOff.onLine = res.data.projectsNum
       }
     });
+  }
+
+  // 页面跳转
+  toPage(path: string) {
+    const routeData = this.$router.resolve({ path: path });
+    window.open(routeData.href, '_blank');
   }
 
   beforeDestroy() {

@@ -1,12 +1,13 @@
 /*
  * @Date         : 2020-06-10 14:39:32
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-07-10 15:54:19
+ * @LastEditTime : 2020-07-31 17:34:19
  * @FilePath     : \vue.config.js
  */
 /* eslint-disable */
 const path = require('path');
 const VueRouterInvokeWebpackPlugin = require('vue-router-invoke-webpack-plugin');
+
 function resolve(dir) {
   return path.join(__dirname, dir)
 }
@@ -44,18 +45,17 @@ module.exports = {
   configureWebpack: {
     plugins: [
       new VueRouterInvokeWebpackPlugin({
-        // dir: 'src/views',
-        // // 必须设置dir配置的别名
-        // alias: '@/views'
+        // 必须设置dir配置的别名
         'dir': 'src/pages',
         'alias': '@/pages',
         'routerDir': 'src/router',
         'language': 'typescript',
         'mode': 'hash',
         'redirect': [{
-          redirect: '/menu',
-          path: '/'
-        }]
+            redirect: '/homePage',
+            path: '/talkback'
+          }
+        ]
       })
     ]
   }

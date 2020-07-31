@@ -1,14 +1,14 @@
 <!--
  * @Date         : 2020-07-29 16:59:02
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-07-31 15:08:02
+ * @LastEditTime : 2020-07-31 16:19:26
  * @FilePath     : \src\pages\menu\videoPage\Index.vue
 -->
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import { getModule } from "vuex-module-decorators";
 import videoPageStore from "store/modules/videoPage/videoPageStore";
-import msg from "common/MessageUtils"
+import msg from "common/MessageUtils";
 
 @Component({})
 export default class VideoPage extends Vue {
@@ -17,11 +17,13 @@ export default class VideoPage extends Vue {
   private pageIndex = 1; // 页码
   private videoTotal = 0; // 摄像头总数
   private videoList: any[] = []; // 摄像头列表
-  // private cid = "76"
-  private cid = "1";
+  private cid: string | null = sessionStorage.getItem("companyId")
+    ? sessionStorage.getItem("companyId")
+    : sessionStorage.getItem("projectId"); // 获取数据的ID
+
   private videoShow = true; // 重绘页面
   private menuList: any[] = []; // 菜单列表
-  private tag = true; // true 集团 false 项目
+  private tag = sessionStorage.getItem("companyId") ? "true" : "false"; // true 集团 false 项目
   private defaultUrl = require("static/lodaingFail.jpg");
   private props = {
     label: "companyName",
@@ -111,9 +113,9 @@ export default class VideoPage extends Vue {
             project.leaf = true;
           });
           resolve(res.data);
-          return
+          return;
         }
-        msg.warning("该公司下没有项目")
+        msg.warning("该公司下没有项目");
         resolve([]);
       });
     });
@@ -138,9 +140,18 @@ export default class VideoPage extends Vue {
 
   // 播放项目视频
   getProjectVideo(id: string) {
-    this.cid = id;
-    this.tag = false;
-    this.getVideoList();
+    if (this.cid !== id) {
+      this.cid = id;
+      this.tag = "false";
+      this.getVideoList();
+      return;
+    }
+    msg.warning("该项目视频已播放");
+  }
+
+  // 项目没有视频
+  isNull() {
+    msg.warning("该项目没有摄像头");
   }
 
   beforeDestroy() {
