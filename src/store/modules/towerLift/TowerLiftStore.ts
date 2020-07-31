@@ -1,7 +1,7 @@
 /*
  * @Date         : 2020-07-31 16:35:23
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-07-31 23:05:46
+ * @LastEditTime : 2020-07-31 23:24:04
  * @FilePath     : \src\store\modules\towerLift\TowerLiftStore.ts
  */
 import { Action, Module, VuexModule } from "vuex-module-decorators";
@@ -50,8 +50,9 @@ export default class TowerLiftStore extends VuexModule {
   }
 
   @Action
-  uploadHistoryData(params: any): Promise<any> {
+  uploadHistoryData(params: any): any {
     // return axios.post(this.towerLiftUrl.uploadHistoryData + params, null, { responseType: 'blob', params: '升降机历史记录' });
-    return (location.href = this.towerLiftUrl.uploadHistoryData + params);
+    return (location.href =
+      "http://47.106.71.3:8080" + this.towerLiftUrl.uploadHistoryData + params);
   }
 }
