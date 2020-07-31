@@ -1,3 +1,9 @@
+/*
+ * @Date         : 2020-07-27 15:53:36
+ * @LastEditors  : HaoJie
+ * @LastEditTime : 2020-07-31 17:50:43
+ * @FilePath     : \src\store\modules\surroundings\SurroundingsStore.ts
+ */
 import { Action, Module, VuexModule } from "vuex-module-decorators";
 import store from "store/index";
 import { requestConfig } from "request/requestConfig";
@@ -50,6 +56,14 @@ export default class SurroundingsStore extends VuexModule {
 
   @Action
   uploadHistoryData(params: any): Promise<any> {
-    return axios.post(this.surroundingsUrl.uploadHistoryData + params, null, { responseType: 'blob', params: '扬尘历史记录' });
+    return axios.post(this.surroundingsUrl.uploadHistoryData + params, null, {
+      responseType: "blob",
+      params: "扬尘历史记录"
+    });
+  }
+
+  @Action
+  getCORP(params: any): Promise<any> {
+    return axios.post(this.surroundingsUrl.getProjectId + params);
   }
 }
