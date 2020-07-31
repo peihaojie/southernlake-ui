@@ -35,16 +35,13 @@ let name: string;
 
 /* 创建axios实例 */
 const server = axios.create({
-  // baseURL: process.env.VUE_APP_PROXY,
+  baseURL: process.env.VUE_APP_PROXY,
   timeout: 1e3 * 60, // 请求超时时间
   headers: {
     "Content-Type": "application/json",
     Accept: "application/json"
   }
 });
-
-// server.defaults.baseURL = "http://47.106.69.253:8080";
-server.defaults.baseURL = "http://192.168.1.9:8083";
 
 // 下载函数
 function downLoad(data: any, name: string) {
@@ -75,8 +72,8 @@ server.interceptors.request.use(
     //   if (store.getters.sessionId) {
     //     config.headers['X-SessionId'] = getSessionId(); // 让每个请求携带token--['X-Token']为自定义key
     //   }
-    config.headers.Authorization =
-      sessionStorage.getItem("Authorization") || "";
+    // config.headers.Authorization =
+    //   sessionStorage.getItem("Authorization") || "";
     name = config.params || "";
     return config;
   },

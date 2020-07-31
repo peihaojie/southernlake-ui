@@ -1,7 +1,7 @@
 <!--
  * @Date         : 2020-07-29 16:59:02
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-07-31 16:19:26
+ * @LastEditTime : 2020-07-31 22:22:10
  * @FilePath     : \src\pages\menu\videoPage\Index.vue
 -->
 <script lang="ts">
@@ -98,6 +98,12 @@ export default class VideoPage extends Vue {
       .getMenuList(`?id=${this.cid}&tag=${this.tag}&type=video`)
       .then((res: any) => {
         if (res.code === "0") {
+          if (this.tag === "false") {
+            res.data.companyName = res.data.projectName;
+            res.data.leaf = false;
+            this.menuList = [res.data];
+            return
+          }
           this.menuList = res.data;
         }
       });
@@ -115,7 +121,7 @@ export default class VideoPage extends Vue {
           resolve(res.data);
           return;
         }
-        msg.warning("该公司下没有项目");
+        // msg.warning("该公司下没有项目");
         resolve([]);
       });
     });
