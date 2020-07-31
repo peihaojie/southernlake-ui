@@ -8,13 +8,13 @@
     height 0.8rem;
     background-image linear-gradient(to right, #6bc4fd , #479cff);
     .logo
-        margin-top 0.24rem;
+        margin-top 0.08rem;
         width 1.75rem;
         height 0.8rem;
         display inline-block;
         text-align center;
     .title
-        width 1.6rem;
+        // width 1.6rem;
         height 0.8rem;
         text-align center;
         font-size 0.18rem;
