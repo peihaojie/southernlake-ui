@@ -151,12 +151,16 @@
           overflow hidden
           color #626262
           line-height .35rem
+          .tai
+            > p
+              width 2.6rem
+              display inline-block
           p
             overflow hidden
             text-overflow ellipsis
-            .unit
-              color #25e101
-              float right
+          .unit
+            color #25e101
+            float right
           .img-wrap
             text-align center
             img

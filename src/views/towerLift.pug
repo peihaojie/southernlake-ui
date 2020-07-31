@@ -42,7 +42,7 @@
                                     span {{project.projectName}}
                                 .p_name_c
                                     span {{project.count}}台
-            .project_list
+            .project_list(v-else)
                 .c_box(:style="{backgroundColor: '#f7f7f7' }")
                     .p_name(:title="Object.keys(projectDetails).length ? projectDetails.projectName : '暂无' ")
                         .p_name_n
