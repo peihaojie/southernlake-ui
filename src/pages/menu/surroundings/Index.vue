@@ -26,7 +26,7 @@ export default class Surroundings extends Vue {
   private hidden = true;
   private show = true;
   private projectId: any = "";
-  private companyId = sessionStorage.getItem("companyId") ? sessionStorage.getItem("companyId") : 1;
+  private companyId = sessionStorage.getItem("companyId") ? sessionStorage.getItem("companyId") : 76;
   private companyList: any[] = []; // 列表的数据
   private projectList: Array<any> = []; // 列表的数据
   private projectDetails: any = {}; // 列表的数据
@@ -167,6 +167,7 @@ export default class Surroundings extends Vue {
   }
 
   getCORP() {
+    debugger
     if (!this.$route.query.projectId) {
       this.show = true;
       this.getCompanyData();
@@ -182,7 +183,7 @@ export default class Surroundings extends Vue {
 
   // 获取公司列表
   getCompanyData() {
-    this.store.getCompanyData(`?id=${this.companyId}&tag=true`).then((res: any) => {
+    this.store.getCompanyData(`?id=${this.companyId}&tag=true&type=dust`).then((res: any) => {
       if (res.code === "0") {
         this.companyList = res.data;
       }
