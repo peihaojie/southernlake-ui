@@ -18,8 +18,8 @@
           .title
             i.click-card-img
             p 打卡情况
-            span 查看更多
-            i.el-icon-arrow-right
+            //- span 查看更多
+            //-   i.el-icon-arrow-right
           .circle
             //- 管理打卡
             .management
@@ -62,7 +62,7 @@
             .title
               i.tower-img
               p 塔吊监测
-              span 查看更多
+              span(@click="toPage('/menu/towerCrane')") 查看更多
                 i.el-icon-arrow-right
             .status-vertical
               div
@@ -89,7 +89,7 @@
             .title
               i.lifter-img
               p 升降机检测
-              span 查看更多
+              span(@click="toPage('/menu/towerLift')") 查看更多
                 i.el-icon-arrow-right
             .status-vertical
               div
@@ -113,7 +113,7 @@
           .title
             i.lifter-img
             p 视频监控
-            span 查看更多
+            span(@click="toPage('/menu/videoPage')") 查看更多
               i.el-icon-arrow-right
           .status-crosswise
             div
@@ -134,7 +134,7 @@
           .title
             i.environment-img
             p 环境检测
-            span 查看更多
+            span(@click="toPage('/menu/surroundings')") 查看更多
               i.el-icon-arrow-right
           .status-crosswise
             div
