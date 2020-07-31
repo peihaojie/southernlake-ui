@@ -1,25 +1,19 @@
 /*
  * @Date         : 2020-03-07 10:18:43
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-06-29 09:55:02
+ * @LastEditTime : 2020-07-31 17:45:49
  * @FilePath     : \src\common\RouterConfig.ts
  */
 import router from "router/.invoke/router";
-import store from "../store";
 
-// router.beforeEach((to, from, next) => {
-//   sessionStorage.setItem("path", to.path);
-//   store.commit("changePath", to.path);
-//   if (to.path === "/show") {
-//     next();
-//     return;
-//   }
-//   if (sessionStorage.getItem("Authorization")) {
-//     next();
-//   } else {
-//     next({
-//       path: "/show"
-//     });
-//   }
-// });
+router.beforeEach((to, from, next) => {
+  if (/\/home:id=/.test(to.path)) {
+    next({
+      path: "/menu/surroundings",
+      query: { projectId: to.path.split("=")[1] }
+    });
+  } else {
+    next();
+  }
+});
 export default router;
