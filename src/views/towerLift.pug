@@ -1,0 +1,195 @@
+.towerLift
+    .devices
+        .top_box
+            .top_box_left
+                img(src="~/static/onlineLift.png")
+            .top_box_right
+                p(:style="{fontSize: '0.18rem'}") 在线升降机
+                p(:style="{fontSize: '0.26rem',marginTop: '0.1rem'}") {{Object.keys(warningLiftData).length ? warningLiftData.zxElevator : 0}}
+        .top_box
+            .top_box_left
+                img(src="~/static/offlineLift.png")
+            .top_box_right
+                p(:style="{fontSize: '0.18rem'}") 离线升降机
+                p(:style="{fontSize: '0.26rem',marginTop: '0.1rem'}") {{Object.keys(warningLiftData).length ? warningLiftData.lxElevator : 0}}
+        .top_box
+            .top_box_left
+                img(src="~/static/errorCrane.png")
+            .top_box_right
+                p(:style="{fontSize: '0.18rem'}") 报警统计
+                p(:style="{fontSize: '0.26rem',marginTop: '0.1rem'}") {{Object.keys(warningLiftData).length ? warningLiftData.bjtj : 0}}
+    .hhr
+    .lift_content
+        .box_one
+            .switch
+                el-button(type="primary" plain icon="el-icon-time" :disabled = "disabled" v-if = "hidden" @click = "checkHistoryHome()") 历史记录
+                el-button(type="primary" plain icon="el-icon-time" :disabled = "disabled" v-if = "!hidden" @click = "checkHistoryHome()") 返回首页
+                el-select(v-model="device" placeholder="切换设备" @change="switchDevice()" :disabled = "disabled")
+                    el-option(v-for="item in deviceData" :key="item.hxzid" :label="item.dname" :value="item.hxzid")
+                el-button(type="primary" plain icon="el-icon-refresh" v-if="device" @click = "uploadHistoryData()") 导出excel
+                el-button(type="primary" plain icon="el-icon-refresh" v-if="!device" disabled) 导出excel
+            .hr
+            .project_title 项目列表
+            .project_list(v-if="show")
+                .c_box(v-for="company in companyList" :key="company.id" @click="checkCompany(company)" )
+                    span {{company.companyName}}
+                    i(:class="company.id === companyId ? 'el-icon-arrow-down' : 'el-icon-arrow-right'")
+                    transition(name="fade")
+                        .p_box(v-if="company.id === companyId" )
+                            .p_name(v-for="project in projectList" :key="project.id" @click="checkProject($event, project)"
+                            :title="project.projectName" :style="{background: project.id === projectId ? '#f7f7f7' : 'none'}")
+                                .p_name_n
+                                    span {{project.projectName}}
+                                .p_name_c
+                                    span {{project.count}}台
+            .project_list
+                .c_box(:style="{backgroundColor: '#f7f7f7' }")
+                    .p_name(:title="Object.keys(projectDetails).length ? projectDetails.projectName : '暂无' ")
+                        .p_name_n
+                            span {{Object.keys(projectDetails).length ? projectDetails.projectName : "暂无"}}
+                        .p_name_c
+                            span {{Object.keys(projectDetails).length ? projectDetails.count : 0 }}台
+            .hr
+            .project_bottom
+                span 升降机状体：
+                span(:style="{color: Object.keys(liftData).length ? '#3ada76': 'red',fontSize: '22px'}") {{Object.keys(liftData).length ? "在线" : "离线"}}
+        .lhr
+        .box_two(v-show = "hidden")
+            .box_two_top
+                .top_left
+                    .left_top {{deviceName ? deviceName : "暂无"}}
+                    .ring
+                        .ring_title {{Object.keys(liftData).length ? liftData.laod : 0}} t
+                        .ring_title(:style="{fontSize: '30px',fontWeight: 'none'}") 载重
+                .top_right
+                    .top_right_box
+                        .box_one
+                            span 速度
+                            img(src="~/static/speed.png" :style="{verticalAlign: 'middle',marginLeft: '0.1rem'}")
+                        .box_two
+                        .box_three
+                            span {{Object.keys(liftData).length ? liftData.speed : 0}}m/s
+                        .box_four(:style="{backgroundColor: '#feb57e'}")
+                    .top_right_box
+                        .box_one
+                            span 风速
+                            img(src="~/static/minWindSpeed.png" :style="{verticalAlign: 'middle',marginLeft: '0.1rem'}")
+                        .box_two
+                        .box_three
+                            span {{Object.keys(liftData).length ? liftData.windSpeed : 0}}4m/s
+                        .box_four(:style="{backgroundColor: '#ff7b81'}")
+                    .top_right_box
+                        .box_one
+                            span 高度
+                            img(src="~/static/height.png" :style="{verticalAlign: 'middle',marginLeft: '0.1rem'}")
+                        .box_two
+                        .box_three
+                            span {{Object.keys(liftData).length ? liftData.height : 0}}m
+                        .box_four
+                    .top_right_box
+                        .box_one
+                            span 楼层
+                            img(src="~/static/floor.png" :style="{verticalAlign: 'middle',marginLeft: '0.1rem'}")
+                        .box_two
+                        .box_three
+                            span {{Object.keys(liftData).length ? liftData.floor : 0}}楼
+                        .box_four
+                    .top_right_box
+                        .box_one
+                            span 角度
+                            img(src="~/static/angle.png" :style="{verticalAlign: 'middle',marginLeft: '0.1rem'}")
+                        .box_two
+                        .box_three
+                            span x:{{Object.keys(liftData).length ? liftData.obliguityX : 0}}° y:{{Object.keys(liftData).length ? liftData.obliguityY : 0}}
+                        .box_four
+                    .top_right_box
+                        .box_one
+                            span 人数
+                            img(src="~/static/people.png" :style="{verticalAlign: 'middle',marginLeft: '0.1rem'}")
+                        .box_two
+                        .box_three
+                            span {{Object.keys(liftData).length ? liftData.loadingCapacity : 0}}人
+                        .box_four
+            .hhr
+            .box_two_bottom
+                .bottom_left
+                    .left_top 升降机预警汇总统计
+                    .left_bottom
+                        .left_bottom_box(:style="{backgroundColor: '#0091ff'}")
+                            .bottom_box 载重报警
+                            .bottom_box {{Object.keys(warningLiftData).length ? warningLiftData.zzbj : 0}}次
+                        .left_bottom_box(:style="{backgroundColor: '#3adb76'}")
+                            .bottom_box 人数报警
+                            .bottom_box {{Object.keys(warningLiftData).length ? warningLiftData.rsbj : 0}}次
+                        .left_bottom_box
+                            .bottom_box 速度报警
+                            .bottom_box {{Object.keys(warningLiftData).length ? warningLiftData.sdbj : 0}}次
+                        .left_bottom_box(:style="{backgroundColor: '#ff7b81'}")
+                            .bottom_box 倾斜报警
+                            .bottom_box {{Object.keys(warningLiftData).length ? warningLiftData.qxbj : 0}}次
+                        .left_bottom_box
+                            .bottom_box 上限位警报
+                            .bottom_box {{Object.keys(warningLiftData).length ? warningLiftData.sxwbj : 0}}次
+                        .left_bottom_box(:style="{backgroundColor: '#0091ff'}")
+                            .bottom_box 下限位警报
+                            .bottom_box {{Object.keys(warningLiftData).length ? warningLiftData.xxwbj : 0}}次
+                        .left_bottom_box(:style="{backgroundColor: '#ff7b81'}")
+                            .bottom_box 冲顶警报
+                            .bottom_box {{Object.keys(warningLiftData).length ? warningLiftData.cdbj : 0}}次
+                        .left_bottom_box(:style="{backgroundColor: '#3adb76'}")
+                            .bottom_box 其他警报
+                            .bottom_box 0次
+                .bottom_hr
+                .bottom_right
+                    .bottom_top 升降机预警占比图
+                    .bottom_bottom
+                        #warning
+        .box_two(v-show = "!hidden")
+            .history_title
+                .h_title {{deviceName ? deviceName : "暂无"}}
+                .h_search
+                    span 时间：
+                    el-date-picker(v-model="historyTime" type="daterange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期" )
+                    span(:style="{marginLeft: '0.2rem'}") 类型：
+                    el-select(v-model="typesOf" clearable placeholder="请选择")
+                        el-option(v-for="item in typesOfData" :key="item.value" :label="item.label" :value="item.value")
+                    el-button(type="primary" round @click = "getHistoryData()") 查询
+            .hhr
+            .history_data
+                el-table(:data="historyData" style="width: 100%" stripe :row-class-name="tableRowClassName")
+                    el-table-column(type="selection" width="55")
+                    el-table-column(label="序号" width="70px")
+                        template(slot-scope="scope")
+                            span {{(currentPage - 1) * pageSize + scope.$index + 1}}
+                    el-table-column(prop="laod" label="载重" :show-overflow-tooltip='true')
+                        template(slot-scope ="scope")
+                            span {{scope.row.laod}}t
+                    el-table-column(prop="speed" label="速度")
+                        template(slot-scope ="scope")
+                            span {{scope.row.speed}}m/s
+                    el-table-column(prop="windSpeed" label="风速")
+                        template(slot-scope ="scope")
+                            span {{scope.row.windSpeed}}m/s
+                    el-table-column(prop="height" label="高度")
+                        template(slot-scope ="scope")
+                            span {{scope.row.height}}m
+                    el-table-column(prop="floor" label="楼层")
+                        template(slot-scope ="scope")
+                            span {{scope.row.floor}}楼
+                    el-table-column(prop="obliguityX" label="倾角X")
+                        template(slot-scope ="scope")
+                            span {{scope.row.obliguityX}}°
+                    el-table-column(prop="obliguityY" label="倾角Y")
+                        template(slot-scope ="scope")
+                            span {{scope.row.obliguityY}}°
+                    el-table-column(prop="loadingCapacity" label="人数")
+                        template(slot-scope ="scope")
+                            span {{scope.row.loadingCapacity}}人
+                    el-table-column(prop="ifoverproof" label="状态")
+                        template(slot-scope ="scope")
+                            span(v-if="scope.row.type === '不合格'" :style="{color: 'red'}") 不合格
+                            span(v-if="scope.row.type === '合格'" :style="{color: '#3adb76'}") 合格
+                    el-table-column(prop="runtime" label="时间" :show-overflow-tooltip='true')
+            .page
+                el-pagination(layout="prev, pager, next,jumper" :total="total" @size-change="handleSizeChange"
+                @current-change="handleCurrentChange" :current-page="currentPage" :page-size="pageSize")

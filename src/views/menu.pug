@@ -2,10 +2,10 @@
     .header
         .logo
             img(src='~static/logo.png')
-        .title 某某项目
+        //.title 某某项目
         .user
-            .circle
-            .user_name 李媛
+            //.circle
+            //.user_name 李媛
     .content_box
         .menu
             .menu_option(v-for="menuItem in menuList" :key="menuItem.id" @click="jumpToPage(menuItem)" :style="{background: menuItem.path === checkedPath ? '#388ec6' : 'none'}")

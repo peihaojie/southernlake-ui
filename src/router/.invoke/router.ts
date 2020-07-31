@@ -18,6 +18,16 @@ export const routes: RouteConfig[] = [{
         path: 'surroundings',
       },
       {
+        component: () => import('@/pages/menu/towerCrane/Index.vue'),
+        name: 'menu-towerCrane',
+        path: 'towerCrane',
+      },
+      {
+        component: () => import('@/pages/menu/towerLift/Index.vue'),
+        name: 'menu-towerLift',
+        path: 'towerLift',
+      },
+      {
         component: () => import('@/pages/menu/videoPage/Index.vue'),
         name: 'menu-videoPage',
         path: 'videoPage',

@@ -1,0 +1,272 @@
+.towerCrane
+    height: 100%;
+    .hhr
+        height 0.1rem;
+        background-color #f7f7f7;
+    .devices
+        height 1rem;
+        .top_box
+            width 5.6rem;
+            height 1rem;
+            display inline-block;
+            vertical-align: top;
+            padding-top 0.2rem;
+            text-align: center;
+            .top_box_left
+                display inline-block;
+            .top_box_right
+                display inline-block;
+                margin-left: 0.2rem;
+                vertical-align: top;
+    .tower_content
+        height: 100%;
+        .lhr
+            width 0.1rem;
+            height: 8.4rem;
+            vertical-align: top;
+            display: inline-block;
+            background-color #f7f7f7;
+        .box_two
+            width: 12.7rem;
+            display: inline-block;
+            .history_title
+                width: 12.74rem;
+                height: 0.7rem;
+                font-size: 18px;
+                padding-left: 0.2rem;
+                .h_title
+                    display: inline-block;
+                    line-height: 0.7rem;
+                    height: 0.7rem;
+                    width 4.9rem;
+                .h_search
+                    display: inline-block;
+                    .el-select
+                        width: 1.6rem;
+                        margin-right: 0.2rem;
+            .history_data
+                .el-table
+                    .success_row
+                        background #f3f3f3;
+                .el-table th
+                    background-color: #c5e9fe !important;
+                    color: #000000 !important;
+                .el-table__row>td
+                    border: none;
+                .el-table::before
+                    height: 0px;
+                .el-table__header tr,.el-table__header th
+                    padding: 0;
+                    height: 0.38rem;
+                .el-table__body tr,.el-table__body td
+                    padding: 0;
+                    height: 0.34rem;
+                .el-table th>.cell
+                    text-align: center;
+                .el-table .cell
+                    text-align: center;
+            .page
+                text-align center;
+            .box_two_bottom
+                display: inline-block;
+                height 4.14rem;
+                .bottom_left
+                    width 6.82rem;
+                    height 100%;
+                    display: inline-block;
+                    vertical-align: top;
+                    .left_top
+                        height: 0.7rem;
+                        line-height: 0.7rem;
+                        padding-left: 0.26rem;
+                        font-size: 0.18rem;
+                    .left_bottom
+                        height 2.8rem;
+                        padding-left 0.24rem;
+                        .left_bottom_box
+                            height 0.8rem;
+                            width 1.42rem;
+                            display inline-block;
+                            margin-top 0.46rem;
+                            margin-right 0.2rem;
+                            background-color #feb178;
+                            border-radius 0.06rem;
+                            .bottom_box
+                                height 0.4rem;
+                                line-height 0.4rem;
+                                text-align center;
+                                font-size 0.16rem;
+                                color #ffffff;
+                .bottom_right
+                    width 5.7rem;
+                    height 100%;
+                    display: inline-block;
+                    vertical-align: top;
+                    .bottom_top
+                        height: 0.7rem;
+                        line-height: 0.7rem;
+                        padding-left: 0.26rem;
+                        font-size: 0.18rem;
+                    .bottom_bottom
+                       height 3rem;
+                       #warning
+                           width 5.7rem;
+                           height 3rem;
+                           margin-left auto;
+                           margin-right auto;
+                .bottom_hr
+                    height 4.14rem;
+                    vertical-align: top;
+                    display: inline-block;
+                    background-color #f7f7f7;
+                    width 0.1rem;
+            .box_two_top
+                height 4.16rem;
+                .top_left
+                    vertical-align: top;
+                    width 5.56rem;
+                    height 100%;
+                    display inline-block;
+                    .left_top
+                        height: 0.7rem;
+                        line-height: 0.7rem;
+                        padding-left: 0.26rem;
+                        font-size: 0.18rem;
+                    .ring
+                        height: 2.48rem;
+                        width: 2.48rem;
+                        margin-left: 2.34rem;
+                        background-image url('~static/ring.png');
+                        background-size 100% 100%;
+                        background-repeat no-repeat;
+                        font-size: 40px;
+                        color: #fff;
+                        font-weight: bold;
+                        padding-top: 0.8rem;
+                        .ring_title
+                            width: 2.48rem;
+                            height: 0.5rem;
+                            text-align: center;
+                .top_right
+                    height 100%;
+                    width 5.06rem;
+                    display inline-block;
+                    .top_right_box
+                        vertical-align: top;
+                        width 1.4rem;
+                        height 1.54rem;
+                        margin-top 0.32rem;
+                        margin-right 0.28rem;
+                        background-color #f7f7f7;
+                        display: inline-block;
+                        .box_one
+                            width 1.4rem;
+                            height 0.5rem;
+                            line-height: 0.5rem;
+                            font-size: 0.18rem;
+                            text-align: center;
+                        .box_two
+                            width 1.4rem;
+                            height 0.3rem;
+                            font-size: 0.14rem;
+                            text-align: center;
+                        .box_three
+                            width 1.4rem;
+                            height 0.4rem;
+                            line-height: 0.4rem;
+                            font-size: 0.18rem;
+                            text-align: center;
+                        .box_four
+                            width 0.92rem;
+                            height 0.2rem;
+                            margin-left auto;
+                            margin-right auto;
+                            background-color #3adb76;
+        .box_one
+            display: inline-block;
+            vertical-align: top;
+            .switch
+                width 4rem;
+                height 0.7rem;
+                line-height: 0.7rem;
+                padding-left: 0.11rem;
+                .el-button
+                    padding: 8px 20px !important;
+                .el-button--primary.is-plain
+                    color: #409EFF;
+                    background: #ffffff;
+                    border-color: #0091ff;
+                .el-select
+                    display: inline-block;
+                    position: relative;
+                    width: 1.2rem;
+                    margin-left 0.08rem;
+                    margin-right 0.08rem;
+                    .el-input
+                        .el-select__caret
+                            color #0091ff;
+                    .el-input__inner
+                        height: 0.323rem;
+                        background: #ffffff;
+                        line-height: 0.323rem;
+                        border: 1px solid #0091ff;
+                    input::-webkit-input-placeholder
+                         color #0091ff;
+                         font-weight 400;
+                        input:-moz-placeholder
+                          color #0091ff;
+                          font-weight 400;
+                        input::-moz-placeholder
+                          color #0091ff;
+                          font-weight 400;
+                        input::-ms-input-placeholder
+                          color #0091ff;
+                          font-weight 400;
+            .hr
+                height 0.1rem;
+                width 4rem;
+                background-color #f7f7f7;
+            .project_bottom
+                 width 4rem;
+                 text-align center;
+                 height: 0.5rem;
+                 line-height: 0.5rem;
+                 font-size 18px;
+            .project_title
+                font-size: 0.18rem;
+                line-height: 0.71rem;
+                height 0.71rem;
+                width 4rem;
+                padding-left: 0.11rem;
+                border-bottom: 1px solid #c8c8c8;
+            .project_list
+                height 6.2rem;
+                overflow: auto;
+                .c_box
+                    padding-left: 0.2rem;
+                    font-size 16px;
+                    line-height 0.35rem;
+                    cursor: pointer;
+                    overflow: hidden;
+                    text-overflow:ellipsis;
+                    white-space: nowrap;
+                    .p_name
+                        padding-left 0.3rem;
+                        height 0.4rem;
+                        width: 3.5rem;
+                        .p_name_n
+                            height 0.4rem;
+                            width: 2.9rem;
+                            overflow: hidden;
+                            text-overflow:ellipsis;
+                            white-space: nowrap;
+                            display inline-block;
+                        .p_name_c
+                            height 0.4rem;
+                            width: 0.3rem;
+                            display inline-block;
+                            vertical-align: top;
+                            color #3ada76;
+                            font-weight bold;
+                    .p_name:hover
+                        background-color #f7f7f7;
