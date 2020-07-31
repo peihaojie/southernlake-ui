@@ -9,7 +9,7 @@
             el-button(type="primary" plain icon="el-icon-refresh" v-if="!sn" disabled) 导出excel
         .hr
         .project_title 项目列表
-        .project_list
+        .project_list(v-if="show")
             .c_box(v-for="company in companyList" :key="company.id" @click="checkCompany(company)" )
                 span {{company.companyName}}
                 i(:class="company.id === companyId ? 'el-icon-arrow-down' : 'el-icon-arrow-right'")
@@ -21,6 +21,13 @@
                                 span {{project.projectName}}
                             .p_name_c
                                 span {{project.count}}台
+        .project_list(v-else)
+            .c_box(:style="{backgroundColor: '#f7f7f7' }")
+                .p_name(:title="Object.keys(projectDetails).length ? projectDetails.projectName : '暂无' ")
+                    .p_name_n
+                        span {{Object.keys(projectDetails).length ? projectDetails.projectName : "暂无"}}
+                    .p_name_c
+                        span {{Object.keys(projectDetails).length ? projectDetails.count : 0 }}台
         .hr
         .project_bottom
             span 扬尘检测：
@@ -148,12 +155,18 @@
                 el-table-column(prop="tsp" label="pm100")
                 el-table-column(prop="noise" label="噪音")
                 el-table-column(prop="humidity" label="湿度")
+                    template(slot-scope ="scope")
+                        span {{scope.row.humidity}}%
                 el-table-column(prop="temperature" label="气温")
+                    template(slot-scope ="scope")
+                        span {{scope.row.temperature}}℃
                 el-table-column(prop="windSpeed" label="风速")
+                    template(slot-scope ="scope")
+                        span {{scope.row.windSpeed}}m/s
                 el-table-column(prop="ifoverproof" label="状态")
                     template(slot-scope ="scope")
                         span(v-if="scope.row.ifoverproof === 'NO'" :style="{color: 'red'}") 不合格
-                        span(v-if="scope.row.ifoverproof === 'YES'") 合格
+                        span(v-if="scope.row.ifoverproof === 'YES'" :style="{color: '#3adb76'}") 合格
                 el-table-column(prop="date" label="时间" :show-overflow-tooltip='true')
         .page
             el-pagination(layout="prev, pager, next,jumper" :total="total" @size-change="handleSizeChange"

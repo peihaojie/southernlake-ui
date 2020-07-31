@@ -8,10 +8,21 @@ export const routes: RouteConfig[] = [{
     name: 'menu',
     path: '/menu',
     children: [{
-      component: () => import('@/pages/menu/surroundings/Index.vue'),
-      name: 'menu-surroundings',
-      path: 'surroundings',
-    }, ],
+        component: () => import('@/pages/menu/surroundings/Index.vue'),
+        name: 'menu-surroundings',
+        path: 'surroundings',
+      },
+      {
+        component: () => import('@/pages/menu/towerCrane/Index.vue'),
+        name: 'menu-towerCrane',
+        path: 'towerCrane',
+      },
+      {
+        component: () => import('@/pages/menu/towerLift/Index.vue'),
+        name: 'menu-towerLift',
+        path: 'towerLift',
+      },
+    ],
   },
   {
     path: '/',

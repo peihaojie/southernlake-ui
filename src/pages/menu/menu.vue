@@ -7,31 +7,31 @@ import MenuStore from "store/modules/menu/MenuStore";
 @Component({})
 export default class Menu extends Vue {
   private store: any;
-  private checkedPath = 'menu/towerCrane';
+  private checkedPath = '/menu/surroundings';
   private menuList: MenuList[] = [
     {
-      label: "塔吊监测",
-      path: "menu/towerCrane",
+      label: "环境监测",
+      path: "/menu/surroundings",
       id: 1,
+      src: require("static/surroundings.png")
+    },
+    {
+      label: "塔吊监测",
+      path: "/menu/towerCrane",
+      id: 2,
       src: require("static/towerCrane.png")
     },
     {
       label: "升降机监测",
-      path: "menu/lift",
-      id: 2,
+      path: "/menu/towerLift",
+      id: 3,
       src: require("static/lift.png")
     },
     {
       label: "视频监控",
-      path: "menu/video",
-      id: 3,
-      src: require("static/video.png")
-    },
-    {
-      label: "环境监测",
-      path: "menu/surroundings",
+      path: "/menu/video",
       id: 4,
-      src: require("static/surroundings.png")
+      src: require("static/video.png")
     }
   ]; // 列表的数据
 
