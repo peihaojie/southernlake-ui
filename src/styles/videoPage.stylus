@@ -142,4 +142,28 @@
       padding 0 .2rem
       border-bottom 1px solid #c8c8c8
     .project-list
-      padding 0 .2rem
+      height calc(100% - 0.6rem)
+      overflow-y auto
+      .tree
+        .custom-tree-node
+          display inline-block
+          width 100%
+          overflow hidden
+          color #626262
+          line-height .35rem
+          p
+            overflow hidden
+            text-overflow ellipsis
+            .unit
+              color #25e101
+              float right
+          .img-wrap
+            text-align center
+            img
+              width 2rem
+              height 1rem
+              border 1px solid #626262
+              border-radius 10px
+        .videoName
+        .el-tree-node__content
+          height auto

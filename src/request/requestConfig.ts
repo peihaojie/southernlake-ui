@@ -1,7 +1,7 @@
 /*
  * @Date         : 2020-03-05 11:37:23
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-07-30 16:14:33
+ * @LastEditTime : 2020-07-31 10:56:47
  * @FilePath     : \src\request\requestConfig.ts
  */
 // 配置所有的接口
@@ -19,6 +19,8 @@ export const requestConfig = {
     uploadHistoryData: "/api/DustEmission/getExcel"
   },
   videoPage: {
-    videoUrl: "/api/NanHuApi/video/selectAllVideoProjectList"
+    videoUrl: "/api/NanHuApi/video/selectAllVideoProjectList",
+    menu: "/api/NanHuApi/getProjectList",
+    project: "/api/NanHuApi/video/selectAreaProjectList"
   }
 };
