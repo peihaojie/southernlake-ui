@@ -25,7 +25,7 @@ export default class Surroundings extends Vue {
   private disabled = true;
   private hidden = true;
   private show = true;
-  private projectId: any = "";
+  private projectId: any;
   private companyId = sessionStorage.getItem("companyId");
   private companyList: any[] = []; // 列表的数据
   private projectList: Array<any> = []; // 列表的数据
@@ -56,6 +56,7 @@ export default class Surroundings extends Vue {
   }
 
   mounted() {
+    this.projectId = sessionStorage.getItem("projectId") ? sessionStorage.getItem("projectId") : this.$route.query.projectId;
     this.getCORP();
     this.dustEcharts();
   }
@@ -167,20 +168,26 @@ export default class Surroundings extends Vue {
   }
 
   getCORP() {
-    if (!this.$route.query.projectId) {
+    if (!this.projectId) {
       this.show = true;
       this.getCompanyData();
     } else {
       this.show = false;
-      this.store.getCORP(`?nanhuId=${this.$route.query.projectId}`).then((res: any) => {
-        if (res.code === 0) {
-          this.projectId = res.data.projectId
-          sessionStorage.setItem("projectId", this.projectId);
-          this.getProjectDetails();
-          this.getSnData();
-          this.getSnCountData();
-        }
-      })
+      if (this.$route.query.projectId) {
+        this.store.getCORP(`?nanhuId=${this.projectId}`).then((res: any) => {
+          if (res.code === 0) {
+            this.projectId = res.data.projectId;
+            sessionStorage.setItem("projectId", this.projectId);
+            this.getProjectDetails();
+            this.getSnData();
+            this.getSnCountData();
+          }
+        })
+      } else {
+        this.getProjectDetails();
+        this.getSnData();
+        this.getSnCountData();
+      }
     }
   }
 
