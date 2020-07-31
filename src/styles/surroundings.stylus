@@ -65,7 +65,6 @@
                 font-size 16px;
                 line-height 0.35rem;
                 cursor: pointer;
-                width: 3.8rem;
                 overflow: hidden;
                 text-overflow:ellipsis;
                 white-space: nowrap;

@@ -18,6 +18,22 @@ export const requestConfig = {
     historyData: "/api/DustEmission/getDustEmission",
     uploadHistoryData: "/api/DustEmission/getExcel"
   },
+  towerCrane: {
+    companyData: "/api/NanHuApi/getProjectList",
+    projectData: "/api/NanHuApi/crane/selectAreaProjectList",
+    deviceData: "/api/craneApi/switchDevice",
+    craneWarningData: "/api/craneApi/selectIndex",
+    craneData: "/api/NanHuApi/craneApi/selectIndex",
+    historyData: "/api/NanHuApi/craneApi/historyRecord",
+    uploadHistoryData: "/api/craneApi/historyRecordExcel"
+  },
+  towerLift: {
+    companyData: "/api/NanHuApi/getProjectList",
+    projectData: "/api/NanHuApi/elevator/selectAreaProjectList",
+    deviceData: "/api/elevatorApi/switchDevice",
+    liftData: "/api/NanHuApi/elevatorApi/selectIndex",
+    historyData: "/api/elevatorApi/historyRecord",
+    uploadHistoryData: "/api/elevatorApi/historyRecordExcel",  },
   videoPage: {
     videoUrl: "/api/NanHuApi/video/selectAllVideoProjectList",
     menu: "/api/NanHuApi/getProjectList",
