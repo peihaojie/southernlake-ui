@@ -1,7 +1,7 @@
 <!--
  * @Date         : 2020-07-29 16:59:02
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-07-31 22:22:10
+ * @LastEditTime : 2020-08-08 09:23:29
  * @FilePath     : \src\pages\menu\videoPage\Index.vue
 -->
 <script lang="ts">

@@ -20,10 +20,10 @@
       el-tree.tree(:props="props" :load="loadNode" lazy accordion v-if="menuList.length")
         span.custom-tree-node(slot-scope="{ node, data }")
           p(v-if="!data.sbProjectVideo" :title="data.companyName") {{ data.companyName }}
-          .tai(v-else :title="data.companyName" @click="getProjectVideo(data.id)")
+          .tai(v-else :title="data.companyName" @click="data.sbProjectVideo.length ? getProjectVideo(data.id) : isNull()")
             p {{ data.companyName ? data.companyName : "未命名" }}
             span.unit {{ data.sbProjectVideo.length }} 台
-            .img-wrap(v-for="img in data.sbProjectVideo" @click="data.sbProjectVideo.length ? getProjectVideo(data.id) : isNull()")
+            .img-wrap(v-for="img in data.sbProjectVideo")
               template(v-if="data.id === cid")
                 img(:src="img.picUrl ? img.picUrl : defaultUrl")
                 p.videoName(:title="img.videoName ? img.videoName : '未命名'") {{ img.videoName ? img.videoName : "未命名" }}
