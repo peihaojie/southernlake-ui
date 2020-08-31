@@ -76,15 +76,15 @@
     .body {
       height: calc(100% - 0.9rem);
       margin: 0.2rem;
-      justify-content: space-between;
-      flex-wrap: nowrap;
-      display: flex;
+      width: 18.63rem
       background: url("~static/company-background-group.png");
       background-size: 100% 100%;
       background-repeat: no-repeat;
       padding: 0.4rem 0.35rem 0.3rem;
       .left {
         width: 3.8rem;
+        float left
+        margin-right .15rem
         .click-card {
           height: 4.6rem;
           padding: 0 0.2rem 0.2rem;
@@ -225,6 +225,8 @@
       }
       .center {
         width: 10rem;
+        float left
+        margin-right .15rem
         #map {
           height: 5.8rem;
           position: relative;
@@ -465,6 +467,7 @@
       }
       .right {
         width: 3.8rem;
+        float left
         .environment {
           height: 5.6rem;
           margin-top: 0.2rem;

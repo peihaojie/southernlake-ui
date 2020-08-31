@@ -1,7 +1,7 @@
 <!--
  * @Date         : 2020-02-24 14:32:59
  * @LastEditors  : HaoJie
- * @LastEditTime : 2020-06-29 16:48:30
+ * @LastEditTime : 2020-08-31 14:39:04
  * @FilePath     : \src\App.vue
  -->
 <template lang='pug'>
@@ -18,7 +18,7 @@ import { Component, Vue } from "vue-property-decorator";
 export default class App extends Vue {
   mounted() {
     this.adapt();
-    window.onresize = () => this.adapt();
+    window.onresize = this.adapt;
   }
 
   private adapt(): void {
